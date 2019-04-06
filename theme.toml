@@ -1,0 +1,17 @@
+name = "Hugo Friggeri CV"
+license = "MIT"
+licenselink = "https://github.com/aarongorka/hugo-friggeri-cv/blob/master/LICENSE.md"
+description = "Hugofied version of Adrien Friggeri's LaTeX CV template"
+homepage = "http://cv.aarongorka.com/"
+tags = ["cv", "resume", "jsonresume", "resumic", "friggeri"]
+features = []
+min_version = "0.37.1"
+
+[author]
+  name = "Aaron Gorka"
+  homepage = "https://aarongorka.com"
+
+[original]
+  name = "Adrien Friggeri"
+  homepage = "https://www.latextemplates.com/template/friggeri-resume-cv"
+  repo = "https://github.com/afriggeri/cv"

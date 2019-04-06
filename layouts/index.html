@@ -1,0 +1,65 @@
+{{ partial "head" . }}
+<body>
+  {{ partial "header" . }}
+  <aside id="left" class="column">
+    <h2>Contact</h2>
+    <ul>
+    {{ with .Site.Data.cv.personal.phone }}
+      <li>{{ . | markdownify }}
+    {{ end }}
+    {{ with .Site.Data.cv.personal.email }}
+      <li>{{ . | markdownify }}
+    {{ end }}
+    {{ with .Site.Data.cv.personal.url }}
+      <li>{{ . | markdownify }}
+    {{ end }}
+    {{ range .Site.Data.cv.personal.profiles }}
+      <li>{{ .url | markdownify }}</li>
+    {{ end }}
+    </ul>
+    <h2>Skills</h2>
+    {{ range .Site.Data.cv.skills }}
+    <h3>{{ .name }}</h3>
+      {{ with .keywords }}
+    <span>{{ delimit . ", " | markdownify }}</span>
+      {{ end }}
+    {{ end }}
+  </aside>
+  <article id="right" class="column">
+    {{ with .Site.Data.cv.personal.summary }}
+    <section id="about">
+      <h2><span>Abo</span>ut Me</h2>
+      {{ . | markdownify }}
+    </section>
+    {{ end }}
+    <section id="experience">
+      <h2><span>Exp</span>erience</h2>
+      {{ range .Site.Data.cv.work }}
+      <div class="row">
+        <div id="company">{{ .name }}</div>
+        <div id="date">{{ .startDate }} - {{ .endDate }}</div>
+        <div id="title">{{ .position }}</div>
+      </div>
+      {{ .summary | markdownify }}
+      {{ end }}
+    </section>
+    <section id="certifications">
+      <h2><span>Cer</span>tifications</h2>
+      {{ range .Site.Data.cv.certificate }}
+      <div class="row">
+      <div id="date" class="column">{{ .grantDate }}</div><div id="name" class="column">{{ .name }}</div><div id="vendor" class="column">{{ .website | markdownify }}</div>
+      </div>
+      {{ end }}
+    </section>
+    <section id="interests">
+      <h2><span>Int</span>erests</h2>
+      <ul>
+      {{ range .Site.Data.cv.interests }}
+        <li>{{ .name | markdownify }}</li>
+      </ul>
+      {{ end }}
+    </section>
+  </article>
+  {{ partial "footer" . }}
+</body>  
+</html>
