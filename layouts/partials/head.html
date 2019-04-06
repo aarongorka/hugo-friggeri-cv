@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <head>
 <style>
+* {
+ box-sizing: border-box;
+}
+
 html {
   height: 100%;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
@@ -8,13 +12,19 @@ html {
 }
 
 body {
+  height: 100%;
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  justify-content: center;
+  flex-direction: column;
   margin: 0;
   padding: 0;
+}
+
+div.container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: flex-start;
 }
 
 h1 {
@@ -166,12 +176,17 @@ div {
 }  
 
 footer {
+  margin-top: auto;
   padding: 1%;
-  align-self: flex-end;
   width: 100%;
   background-color: #4D4D4D;
   color: white;
   text-align: center;
+}
+@media print {
+  footer {
+    display: none;
+  } 
 }
 </style>
 </head>
