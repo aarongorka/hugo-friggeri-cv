@@ -3,7 +3,7 @@ license = "MIT"
 licenselink = "https://github.com/aarongorka/hugo-friggeri-cv/blob/master/LICENSE.md"
 description = "Hugofied version of Adrien Friggeri's LaTeX CV template"
 homepage = "http://cv.aarongorka.com/"
-tags = ["cv", "resume", "jsonresume", "resumic", "friggeri"]
+tags = ["cv", "resume", "jsonresume", "resumic", "friggeri-cv"]
 features = []
 min_version = "0.37.1"
 
