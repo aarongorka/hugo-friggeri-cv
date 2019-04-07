@@ -44,7 +44,7 @@
             <div id="work-right" class="column">
               <div id="company">{{ .name }}</div>
               <div id="title">{{ .position }}</div>
-              <p id="work-summary">{{ .summary | markdownify }}</p>
+              <div id="work-summary">{{ .summary | markdownify }}</div>
             </div>
           </div>
           {{ end }}
