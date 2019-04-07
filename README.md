@@ -9,7 +9,7 @@ A port of [friggeri-cv] to Hugo using datasources. The [Resumic] standard is use
 
 ## Installation
 
-`git clone https://github.com/aarongorka/hugo-friggeri-cv.git themes/hugo-friggeri-cv`
+`git submodule add https://github.com/aarongorka/hugo-friggeri-cv.git themes/hugo-friggeri-cv`
 
 Set the theme in your `config.toml`:
 
