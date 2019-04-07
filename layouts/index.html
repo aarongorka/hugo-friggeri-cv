@@ -35,20 +35,28 @@
       {{ end }}
       <section id="experience">
         <h2><span>Exp</span>erience</h2>
-        {{ range .Site.Data.cv.work }}
-        <div class="row">
-          <div id="company">{{ .name }}</div>
-          <div id="date">{{ .startDate }} - {{ .endDate }}</div>
-          <div id="title">{{ .position }}</div>
-        </div>
-        {{ .summary | markdownify }}
-        {{ end }}
+        <div class="column">
+          {{ range .Site.Data.cv.work }}
+          <div class="container">
+            <div id="work-date" class="column">
+              <span id="date">{{ .startDate }} - {{ .endDate }}</span>
+            </div>
+            <div id="work-right" class="column">
+              <div id="company">{{ .name }}</div>
+              <div id="title">{{ .position }}</div>
+              <p id="work-summary">{{ .summary | markdownify }}</p>
+            </div>
+          </div>
+          {{ end }}
+        <div class="container">
       </section>
       <section id="certifications">
         <h2><span>Cer</span>tifications</h2>
         {{ range .Site.Data.cv.certificate }}
         <div class="row">
-        <div id="date" class="column">{{ .grantDate }}</div><div id="name" class="column">{{ .name }}</div><div id="vendor" class="column">{{ .website | markdownify }}</div>
+          <div id="date">{{ .grantDate }}</div>
+          <div id="name">{{ .name }}</div>
+          <div id="vendor">{{ .website | markdownify }}</div>
         </div>
         {{ end }}
       </section>

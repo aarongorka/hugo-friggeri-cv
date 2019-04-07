@@ -19,11 +19,13 @@ body {
   padding: 0;
 }
 
-div.container {
+.container {
   width: 100%;
+  flex: 1 0 auto;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
+  justify-content: flex-start;
   align-items: flex-start;
 }
 
@@ -106,7 +108,7 @@ article {
   flex-wrap: wrap;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-start;
   width: 100%;
 }
 
@@ -131,32 +133,33 @@ section#certifications .column {
   justify-content: flex-start;
 }
 
+#work-date {
+  flex: 1 0 15%;
+}
+
+#work-right {
+  flex: 5 0 80%;
+}
+
 #date {
-  flex: 1;
-  width: 32%;
+  flex: 0 0 auto;
+  margin-right: 30%;
   padding: 0 1% 0 0;
   white-space: nowrap;
 }
 
-div {
-  vertical-align: top;
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-}
-
 #company {
+  width: 100%;
   font-weight: bold;
   padding: 0 1% 0 0;
-  flex: 1;
-  width: 32%;
 }
 
 #title {
-  flex: 1;
-  width: 32%;
-  text-align: right;
-  font-weight: lighter;
+  width: 100%;
+}
+
+#work-summary {
+  width: 100%;
 }
 
 #job-details {
@@ -164,18 +167,20 @@ div {
 }
 
 #certifications #name {
-  flex: 2;
+  flex: 0 0 auto;
   text-align: left;
   font-weight: bold;
 }
 
 #vendor {
-  width: 32%;
+  flex: 0 0 auto;
+  margin-left: auto;
   text-align: right;
   font-weight: lighter;
 }  
 
 footer {
+  flex: 0 0 auto;
   margin-top: auto;
   padding: 1%;
   width: 100%;
