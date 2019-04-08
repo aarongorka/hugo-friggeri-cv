@@ -50,6 +50,33 @@
           {{ end }}
         <div class="container">
       </section>
+      {{ with .Site.Data.cv.education }}
+      <section id="education">
+        <h2><span>Edu</span>cation</h2>
+        <div class="column">
+        {{ range . }}
+          <div class="container">
+            <div id="work-date" class="column">
+              <span id="date">{{ .startDate }} - {{ .endDate }}</span>
+            </div>
+            <div id="work-right" class="column">
+              <div id="company">{{ .institution }}</div>
+              <div id="title">{{ .studyType }}, {{ .area }}</div>
+              {{ with .highlights }}
+              <div id="work-summary">
+                <ul>
+                {{ range . }}
+                  <li>{{ . | markdownify }}</li>
+                {{ end }}
+                </ul>
+              </div>
+              {{ end }}
+            </div>
+          </div>
+        {{ end }}
+        </div>
+      </section>
+      {{ end }}
       <section id="certifications">
         <h2><span>Cer</span>tifications</h2>
         {{ range .Site.Data.cv.certificate }}
