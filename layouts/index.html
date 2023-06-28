@@ -2,22 +2,25 @@
 <body>
   {{ partial "header" . }}
   <div class="container">
-    <aside id="left" class="column">
-      <h2>Contact</h2>
-      <ul>
-      {{ with .Site.Data.cv.personal.phone }}
-        <li>{{ . | markdownify }}
-      {{ end }}
-      {{ with .Site.Data.cv.personal.email }}
-        <li>{{ . | markdownify }}
-      {{ end }}
-      {{ with .Site.Data.cv.personal.url }}
-        <li>{{ . | markdownify }}
-      {{ end }}
-      {{ range .Site.Data.cv.personal.profiles }}
-        <li>{{ .url | markdownify }}</li>
-      {{ end }}
-      </ul>
+    <aside>
+      <section id="contact">
+        <h2>Contact</h2>
+        <ul>
+        {{ with .Site.Data.cv.personal.phone }}
+          <li>{{ . | markdownify }}
+        {{ end }}
+        {{ with .Site.Data.cv.personal.email }}
+          <li>{{ . | markdownify }}
+        {{ end }}
+        {{ with .Site.Data.cv.personal.url }}
+          <li>{{ . | markdownify }}
+        {{ end }}
+        {{ range .Site.Data.cv.personal.profiles }}
+          <li>{{ .url | markdownify }}</li>
+        {{ end }}
+        </ul>
+      </section>
+      <section id="skills">
       <h2>Skills</h2>
       {{ range .Site.Data.cv.skills }}
       <h3>{{ .name }}</h3>
@@ -25,6 +28,7 @@
       <span>{{ delimit . ", " | markdownify }}</span>
         {{ end }}
       {{ end }}
+      </section>
     </aside>
     <article id="right" class="column">
       {{ with .Site.Data.cv.personal.summary }}
@@ -35,9 +39,8 @@
       {{ end }}
       <section id="experience">
         <h2><span>Exp</span>erience</h2>
-        <div class="column">
+        <div id="experience-grid">
           {{ range .Site.Data.cv.work }}
-          <div class="container">
             <div id="work-date" class="column">
               <span id="date">{{ .startDate }} - {{ .endDate }}</span>
             </div>
@@ -46,7 +49,6 @@
               <div id="title">{{ .position }}</div>
               <div id="work-summary">{{ .summary | markdownify }}</div>
             </div>
-          </div>
           {{ end }}
         <div class="container">
       </section>
