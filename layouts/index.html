@@ -1,8 +1,8 @@
 {{ partial "head" . }}
 <body>
   {{ partial "header" . }}
-  <div class="container">
-    <aside>
+  <div id="content">
+    <div id="side-section">
       <section id="contact">
         <h2>Contact</h2>
         <ul>
@@ -25,12 +25,12 @@
       {{ range .Site.Data.cv.skills }}
       <h3>{{ .name }}</h3>
         {{ with .keywords }}
-      <span>{{ delimit . ", " | markdownify }}</span>
+      <div>{{ delimit . ", " | markdownify }}</div>
         {{ end }}
       {{ end }}
       </section>
-    </aside>
-    <article id="right" class="column">
+    </div>
+    <div id="main-section">
       {{ with .Site.Data.cv.personal.summary }}
       <section id="about">
         <h2><span>Abo</span>ut Me</h2>
@@ -41,16 +41,14 @@
         <h2><span>Exp</span>erience</h2>
         <div id="experience-grid">
           {{ range .Site.Data.cv.work }}
-            <div id="work-date" class="column">
-              <span id="date">{{ .startDate }} - {{ .endDate }}</span>
-            </div>
-            <div id="work-right" class="column">
-              <div id="company">{{ .name }}</div>
-              <div id="title">{{ .position }}</div>
+            <!-- <div id="work-right"> -->
+              <div id="work-title"><h3>{{ .position }}</h3></div>
+              <div id="work-date" class="date">{{ .startDate }} - {{ .endDate }}</div>
+              <div id="work-company">{{ .name }}</div>
               <div id="work-summary">{{ .summary | markdownify }}</div>
-            </div>
+            <!-- </div> -->
           {{ end }}
-        <div class="container">
+        </div> 
       </section>
       {{ with .Site.Data.cv.education }}
       <section id="education">
@@ -58,9 +56,7 @@
         <div class="column">
         {{ range . }}
           <div class="container">
-            <div id="work-date" class="column">
-              <span id="date">{{ .startDate }} - {{ .endDate }}</span>
-            </div>
+            <div id="work-date" class="date">{{ .startDate }} - {{ .endDate }}</div>
             <div id="work-right" class="column">
               <div id="company">{{ .institution }}</div>
               <div id="title">{{ .studyType }}, {{ .area }}</div>
@@ -81,13 +77,13 @@
       {{ end }}
       <section id="certifications">
         <h2><span>Cer</span>tifications</h2>
+        <div id="certifications-grid">
         {{ range .Site.Data.cv.certificate }}
-        <div class="row">
-          <div id="date">{{ .grantDate }}</div>
+          <div id="date" class="date">{{ .grantDate }}</div>
           <div id="name">{{ .name }}</div>
           <div id="vendor">{{ .website | markdownify }}</div>
-        </div>
         {{ end }}
+        </div>
       </section>
       <section id="interests">
         <h2><span>Int</span>erests</h2>
@@ -97,7 +93,7 @@
         </ul>
         {{ end }}
       </section>
-    </article>
+    </div>
   </div>
   {{ partial "footer" . }}
 </body>  

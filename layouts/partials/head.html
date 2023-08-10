@@ -1,8 +1,19 @@
 <!DOCTYPE html>
 <head>
 <style>
+@page
+{
+    size: auto;
+    /*
+    margin: 25mm 25mm 25mm 25mm;
+    */
+    margin: 5em 5em 5em 5em;
+}
+
 * {
  box-sizing: border-box;
+ margin: 0;
+ padding: 0;
 }
 
 html {
@@ -11,16 +22,11 @@ html {
   color: #4D4D4D;
 }
 
-body {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  margin: 0;
-  padding: 0;
-}
-
 @media screen {
-  .container {
+  #content {
+    margin-left: 2em;
+    margin-right: 2em;
+    height: 100%
     width: 100%;
     flex-grow: 1;
     flex-shrink: 0;
@@ -33,23 +39,25 @@ body {
   }
 }
 
+}
+
 h1 {
   width 100%;
 }
 
 h2 {
   width: 100%;
-  margin-bottom: 0;
 }
 
 h3, h4, h5, h6 {
   width: 100%;
-  margin-top: 0;
-  margin-bottom: 0;
+  margin-bottom: 0; */
 }
 
-p {
-  margin-top: 0;
+ul {
+  margin-left: 0;
+  padding-left: 1em;
+  margin-bottom: 1em;
 }
 
 section#about h2 span {
@@ -68,147 +76,135 @@ section#interests h2 span {
   color: #C2E15F;
 }
 
-header {
-  background-color: #4D4D4D;
-  word-wrap: break-word;
-  color: white;
-  text-align: center;
-  width: 100%;
-  font-size: 400%;
+.date {
+  color: grey;
+  font-weight: bold;
 }
 
-aside a {
+@media screen {
+  header {
+    background-color: #4D4D4D;
+    word-wrap: break-word;
+    color: white;
+    text-align: center;
+    width: 100%;
+    font-size: 400%;
+    padding: 1em;
+  }
+}
+
+@media print {
+  header {
+    word-wrap: break-word;
+    text-align: center;
+    width: 100%;
+    font-size: 300%;
+  }
+}
+
+#side-section a {
   white-space: nowrap;
 }
 
 @media screen {
-  aside {
+  #side-section {
     text-align: right;
-    padding: 1%;
-    margin: 1%;
-    margin-left: 4%;
+    margin: 1em;
     flex: 0 0 10%;
     word-wrap: none;
   }
 }
 
 @media print {
-  aside {
+  #side-section {
     display: grid;
-    grid-template-columns: auto auto;
-    justify-content: space-evenly;
-    grid-column-gap: 1%;
-    padding: 1%;
-    margin: 1%;
+    grid-template-columns: 50% 50%;
+    justify-content: space-between;
+    margin: 1em;
     word-wrap: none;
   }
 }
 
-ul {
-  list-style-position: inside;
-  margin-top: 0;
-  padding: 0;
-}
-
 #interests ul,
 #certifications ul,
-aside ul {
+#side-section ul {
+  list-style-position: inside;
+  margin: 0;
+  padding: 0;
   list-style-type: none;
 }
 
-article {
-  padding: 1%;
-  margin: 1% 4% 1% 1%;
-}
-
-.column {
-  flex-wrap: wrap;
-  display: flex;
-  flex-direction: column;
-}
-
-.row {
-  flex-wrap: wrap;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  width: 100%;
-}
-
-#right {
+#main-section {
+  margin: 1em;
   flex: 1 0 60%;
-  align-items: flex-start;
+  flex-wrap: wrap;
 }
 
 section {
-  width: 100%;
+  margin-bottom: 1em;
 }
 
-section#certifications .column {
-  padding: 0 1% 0 0;
+/* Prevent double margins when e.g. ul has a bottom margin */
+section :last-child {
+  margin-bottom: 0;
+}
+#experience-grid :last-child {
+  margin-bottom: 0;
 }
 
-#experience {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  justify-content: flex-start;
+@media screen {
+  #experience-grid {
+    display: grid;
+    grid-column-gap: 1em;
+    grid-template-columns: [work-date] max-content [work-right] 1fr;
+  }
+
+  #work-date {
+    grid-column: work-date;
+  }
+
+  #work-title {
+    grid-column: work-right;
+  }
+
+  #work-company {
+    grid-column: work-right;
+  }
+
+  #work-summary {
+    grid-column: work-right;
+    margin-bottom: 1em;
+  }
 }
 
-#experience-grid {
+@media print {
+  #experience-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  #work-summary {
+    margin-bottom: 1em;
+  }
+}
+
+#certifications-grid {
   display: grid;
-  grid-template-columns: max-content auto;
+  width: 100%;
   grid-column-gap: 1%;
-};
-
-#work-date {
-  flex: 1 0 15%;
-}
-
-#work-right {
-  flex: 1 0 85%;
-}
-
-#date {
-  flex: 0 0 auto;
-  margin-right: 4%;
-  padding: 0 1% 0 0;
-  white-space: nowrap;
-}
-
-#company {
-  width: 100%;
-  font-weight: bold;
-  padding: 0 1% 0 0;
-}
-
-#title {
-  width: 100%;
-  padding: 0 0 1% 0;
-}
-
-#work-summary {
-  width: 100%;
-}
-
-#job-details {
-  width: 100%;
+  grid-template-columns: auto 1fr auto;
 }
 
 #certifications #name {
-  flex: 0 0 auto;
   text-align: left;
   font-weight: bold;
-  margin-right: 8%;
 }
 
 #vendor {
   flex: 0 0 auto;
-  margin-left: auto;
   text-align: right;
   font-weight: lighter;
-}  
+}
 
 footer {
   flex: 0 0 auto;
@@ -222,7 +218,7 @@ footer {
 @media print {
   footer {
     display: none;
-  } 
+  }
 }
 </style>
 </head>
