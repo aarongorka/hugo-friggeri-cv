@@ -41,14 +41,12 @@
         <h2><span>Exp</span>erience</h2>
         <div id="experience-grid">
           {{ range .Site.Data.cv.work }}
-            <!-- <div id="work-right"> -->
-              <div id="work-title"><h3>{{ .position }}</h3></div>
-              <div id="work-date" class="date">{{ .startDate }} - {{ .endDate }}</div>
-              <div id="work-company">{{ .name }}</div>
-              <div id="work-summary">{{ .summary | markdownify }}</div>
-            <!-- </div> -->
+            <div id="work-date" class="date">{{ .startDate }} - {{ .endDate }}</div>
+            <div id="work-company"><h3>{{ .name }}</h3></div>
+            <div id="work-title"><i>{{ .position }}</i></div>
+            <div id="work-summary">{{ .summary | markdownify }}</div>
           {{ end }}
-        </div> 
+        </div>
       </section>
       {{ with .Site.Data.cv.education }}
       <section id="education">
@@ -96,5 +94,5 @@
     </div>
   </div>
   {{ partial "footer" . }}
-</body>  
+</body>
 </html>

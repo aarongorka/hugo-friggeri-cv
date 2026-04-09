@@ -62,7 +62,12 @@ h2 {
   width: 100%;
 }
 
-h3, h4, h5, h6 {
+h3 {
+  width: 100%;
+  margin-bottom: 0;
+}
+
+h4, h5, h6 {
   width: 100%;
   margin-bottom: 0;
 }
